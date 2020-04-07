@@ -343,7 +343,7 @@ def main(args=None):
         model = keras.utils.multi_gpu_model(model, gpus=list(map(int, args.gpu.split(','))))
     '''
     session_config = tf.compat.v1.ConfigProto(allow_soft_placement=True)
-    distribute = tf.contrib.distribute.MirroredStrategy(num_gpus=4)
+    distribute = tf.distribute.MirroredStrategy(devices=None)
     run_config = tf.estimator.RunConfig(train_distribute=distribute)
     model = tf.keras.estimator.model_to_estimator(model_fn=model, config=run_config)
     #your_network.train(input_fn)
