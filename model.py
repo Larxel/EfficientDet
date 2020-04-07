@@ -18,9 +18,9 @@ from initializers import PriorProbability
 from utils.anchors import anchors_for_shape
 import numpy as np
 
-w_bifpns = [64, 88, 112, 160, 224, 288, 384]
-d_bifpns = [3, 4, 5, 6, 7, 7, 8]
-d_heads = [3, 3, 3, 4, 4, 4, 5]
+w_bifpns = [64, 64, 64, 64, 64, 64, 64]#[64, 88, 112, 160, 224, 288, 384]
+d_bifpns = [3, 4, 4, 4, 4, 4, 4]#[3, 4, 5, 6, 7, 7, 8]
+d_heads = [3, 3, 3, 3, 3, 3, 3]#[3, 3, 3, 4, 4, 4, 5]
 image_sizes = [256, 256, 256, 256, 256, 256, 256]#[512, 640, 768, 896, 1024, 1280, 1408]
 backbones = [EfficientNetB0, EfficientNetB1, EfficientNetB2,
              EfficientNetB3, EfficientNetB4, EfficientNetB5, EfficientNetB6]
