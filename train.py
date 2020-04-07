@@ -356,7 +356,7 @@ def main(args=None):
     
     #model = tf.keras.estimator.model_to_estimator(model, config=run_config)
 
-    # print(model.summary())
+    print(model.summary())
 
     # create the callbacks
     callbacks = create_callbacks(
