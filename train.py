@@ -342,7 +342,7 @@ def main(args=None):
     if args.gpu and len(args.gpu.split(',')) > 1:
         model = keras.utils.multi_gpu_model(model, gpus=list(map(int, args.gpu.split(','))))
     '''
-    session_config = tf.ConfigProto(allow_soft_placement=True)
+    session_config = tf.compat.v1.ConfigProto(allow_soft_placement=True)
     distribute = tf.contrib.distribute.MirroredStrategy(num_gpus=4)
     run_config = tf.estimator.RunConfig(train_distribute=distribute)
     model = tf.keras.estimator.model_to_estimator(model_fn=model, config=run_config)
