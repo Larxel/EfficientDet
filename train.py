@@ -52,7 +52,7 @@ def get_session():
     Construct a modified tf session.
     """
     config = tf.ConfigProto()
-    config.gpu_options.allow_growth = True
+    config.gpu_options.allow_growth = False
     return tf.Session(config=config)
 
 
