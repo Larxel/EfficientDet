@@ -338,13 +338,13 @@ def main(args=None):
         for i in range(1, [227, 329, 329, 374, 464, 566, 656][args.phi]):
             model.layers[i].trainable = False
     
-    '''
+    
     if args.gpu and len(args.gpu.split(',')) > 1:
         model = keras.utils.multi_gpu_model(model, gpus=list(map(int, args.gpu.split(','))))
-    '''
-    session_config = tf.compat.v1.ConfigProto(allow_soft_placement=True)
-    distribute = tf.distribute.MirroredStrategy(devices=None)
-    run_config = tf.estimator.RunConfig(train_distribute=distribute)
+    
+    #session_config = tf.compat.v1.ConfigProto(allow_soft_placement=True)
+    #distribute = tf.distribute.MirroredStrategy(devices=None)
+    #run_config = tf.estimator.RunConfig(train_distribute=distribute)
     
     
     
@@ -354,7 +354,7 @@ def main(args=None):
         'classification': focal()
     }, )
     
-    model = tf.keras.estimator.model_to_estimator(model, config=run_config)
+    #model = tf.keras.estimator.model_to_estimator(model, config=run_config)
 
     # print(model.summary())
 
