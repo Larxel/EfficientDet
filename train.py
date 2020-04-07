@@ -345,8 +345,7 @@ def main(args=None):
     session_config = tf.compat.v1.ConfigProto(allow_soft_placement=True)
     distribute = tf.distribute.MirroredStrategy(devices=None)
     run_config = tf.estimator.RunConfig(train_distribute=distribute)
-    model = tf.keras.estimator.model_to_estimator(model, config=run_config)
-    #your_network.train(input_fn)
+    
     
     
     # compile model
@@ -354,6 +353,8 @@ def main(args=None):
         'regression': smooth_l1_quad() if args.detect_quadrangle else smooth_l1(),
         'classification': focal()
     }, )
+    
+    model = tf.keras.estimator.model_to_estimator(model, config=run_config)
 
     # print(model.summary())
 
